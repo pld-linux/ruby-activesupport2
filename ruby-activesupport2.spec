@@ -18,7 +18,10 @@ Requires:	ruby
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Utility libraries for Ruby on Rails
+Utility libraries for Ruby on Rails.
+
+%description -l pl
+Biblioteki narzêdziowe dla Ruby on Rails.
 
 %prep
 %setup -q -n %{tarname}-%{version}
