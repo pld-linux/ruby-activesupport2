@@ -14,7 +14,7 @@ Source0:	http://rubyforge.org/frs/download.php/3678/%{tarname}-%{version}.tgz
 URL:		http://www.rubyonrails.com/
 BuildRequires:	ruby
 Requires:	ruby
-Requires: ruby-breakpoint
+Requires:	ruby-breakpoint
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
