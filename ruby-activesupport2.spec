@@ -5,12 +5,12 @@ Summary:	Mail generator library for Ruby
 Summary(pl):	Biblioteka do generowania listów w jêzyku Ruby
 Name:		ruby-ActiveSupport
 %define tarname activesupport
-Version:	1.1.1
+Version:	1.2.1
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
-Source0:	http://rubyforge.org/frs/download.php/5161/%{tarname}-%{version}.tgz
-# Source0-md5:	98da3d07d87e32548800398c42083402
+Source0:	http://rubyforge.org/frs/download.php/6566/%{tarname}-%{version}.tgz
+# Source0-md5:	f97e2493a25df6d8901b1c0d9be79ed3
 URL:		http://www.rubyonrails.com/
 BuildRequires:	ruby
 Requires:	ruby
