@@ -1,6 +1,3 @@
-%define	ruby_rubylibdir	%(ruby -r rbconfig -e 'print Config::CONFIG["rubylibdir"]')
-%define	ruby_ridir	%(ruby -r rbconfig -e 'include Config; print File.join(CONFIG["datadir"], "ri", CONFIG["ruby_version"], "system")')
-%define	ruby_version	%(ruby -r rbconfig -e 'print Config::CONFIG["ruby_version"]')
 Summary:	Mail generator library for Ruby
 Summary(pl):	Biblioteka do generowania listów w jêzyku Ruby
 Name:		ruby-ActiveSupport
@@ -12,6 +9,7 @@ Group:		Development/Languages
 Source0:	http://rubyforge.org/frs/download.php/6566/%{tarname}-%{version}.tgz
 # Source0-md5:	f97e2493a25df6d8901b1c0d9be79ed3
 URL:		http://www.rubyonrails.com/
+BuildRequires:	rpmbuild(macros) >= 1.263
 BuildRequires:	ruby
 Requires:	ruby
 Requires:	ruby-breakpoint
