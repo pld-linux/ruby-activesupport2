@@ -3,15 +3,15 @@ Summary(pl):	Biblioteka do generowania listów w jêzyku Ruby
 Name:		ruby-ActiveSupport
 %define tarname activesupport
 Version:	1.2.1
-Release:	1
+Release:	2
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubyforge.org/frs/download.php/6566/%{tarname}-%{version}.tgz
 # Source0-md5:	f97e2493a25df6d8901b1c0d9be79ed3
 URL:		http://www.rubyonrails.com/
 BuildRequires:	rpmbuild(macros) >= 1.263
-BuildRequires:	ruby
-Requires:	ruby
+BuildRequires:	ruby-modules
+Requires:	ruby-modules
 Requires:	ruby-breakpoint
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
