@@ -26,14 +26,14 @@ Biblioteki narzêdziowe dla Ruby on Rails.
 %setup -q -n %{tarname}-%{version}
 
 %build
-rdoc --ri --op ri lib
+#rdoc --ri --op ri lib
 rdoc --op rdoc lib
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{ruby_rubylibdir},%{ruby_ridir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_rubylibdir}
-cp -a ri/ri/* $RPM_BUILD_ROOT%{ruby_ridir}
+#cp -a ri/ri/* $RPM_BUILD_ROOT%{ruby_ridir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -42,4 +42,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGELOG rdoc
 %{ruby_rubylibdir}/*
-%{ruby_ridir}/ActiveSupport
+#%{ruby_ridir}/ActiveSupport
