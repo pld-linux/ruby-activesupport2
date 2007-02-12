@@ -1,5 +1,5 @@
 Summary:	Mail generator library for Ruby
-Summary(pl):	Biblioteka do generowania listów w jêzyku Ruby
+Summary(pl.UTF-8):   Biblioteka do generowania listÃ³w w jÄ™zyku Ruby
 Name:		ruby-ActiveSupport
 %define tarname activesupport
 Version:	1.3.1
@@ -19,8 +19,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Utility libraries for Ruby on Rails.
 
-%description -l pl
-Biblioteki narzêdziowe dla Ruby on Rails.
+%description -l pl.UTF-8
+Biblioteki narzÄ™dziowe dla Ruby on Rails.
 
 %prep
 %setup -q -n %{tarname}-%{version}
