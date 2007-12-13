@@ -2,15 +2,18 @@ Summary:	Mail generator library for Ruby
 Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
 Name:		ruby-ActiveSupport
 %define tarname activesupport
-Version:	1.4.1
+Version:	2.0.1
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
-Source0:	http://rubyforge.org/frs/download.php/17221/%{tarname}-%{version}.tgz
-# Source0-md5:	29b582a44fdaa510422c823d2f652c25
+Source0:	http://rubyforge.org/frs/download.php/28871/%{tarname}-%{version}.tgz
+# Source0-md5:	2699c85ff20b7a3766b8dd418763e6b7
+Patch0:	%{name}-nogems.patch
 URL:		http://www.rubyonrails.com/
 BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby-modules
+Requires: ruby-builder >= 2.1.2
+Requires: ruby-xml-simple >= 1.0.11
 %{?ruby_mod_ver_requires_eq}
 Requires:	ruby-breakpoint
 #BuildArch:	noarch
@@ -24,6 +27,7 @@ Biblioteki narzędziowe dla Ruby on Rails.
 
 %prep
 %setup -q -n %{tarname}-%{version}
+%patch0 -p1
 
 %build
 #rdoc --ri --op ri lib
