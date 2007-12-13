@@ -12,10 +12,10 @@ Patch0:	%{name}-nogems.patch
 URL:		http://www.rubyonrails.com/
 BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby-modules
-Requires: ruby-builder >= 2.1.2
-Requires: ruby-xml-simple >= 1.0.11
 %{?ruby_mod_ver_requires_eq}
+Requires:	ruby-builder >= 2.1.2
 Requires:	ruby-breakpoint
+Requires:	ruby-xml-simple >= 1.0.11
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
