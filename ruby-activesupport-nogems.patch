@@ -1,0 +1,19 @@
+diff -ur activesupport-2.0.1-o/lib/active_support/vendor.rb activesupport-2.0.1/lib/active_support/vendor.rb
+--- activesupport-2.0.1-o/lib/active_support/vendor.rb	2007-10-10 17:01:41.000000000 -0600
++++ activesupport-2.0.1/lib/active_support/vendor.rb	2007-12-13 01:17:01.000000000 -0700
+@@ -1,14 +1 @@
+ # Prefer gems to the bundled libs.
+-require 'rubygems'
+-
+-begin
+-  gem 'builder', '~> 2.1.2'
+-rescue Gem::LoadError
+-  $:.unshift "#{File.dirname(__FILE__)}/vendor/builder-2.1.2"
+-end
+-
+-begin
+-  gem 'xml-simple', '~> 1.0.11'
+-rescue Gem::LoadError
+-  $:.unshift "#{File.dirname(__FILE__)}/vendor/xml-simple-1.0.11"
+-end
+Only in activesupport-2.0.1/lib/active_support: vendor.rb~
