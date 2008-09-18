@@ -1,6 +1,6 @@
-diff -ur activesupport-2.0.1-o/lib/active_support/vendor.rb activesupport-2.0.1/lib/active_support/vendor.rb
---- activesupport-2.0.1-o/lib/active_support/vendor.rb	2007-10-10 17:01:41.000000000 -0600
-+++ activesupport-2.0.1/lib/active_support/vendor.rb	2007-12-13 01:17:01.000000000 -0700
+diff -Nur activesupport-2.0.1.orig/lib/active_support/vendor.rb activesupport-2.0.1.nogems/lib/active_support/vendor.rb
+--- activesupport-2.0.1.orig/lib/active_support/vendor.rb	2007-10-10 17:01:41.000000000 -0600
++++ activesupport-2.0.1.nogems/lib/active_support/vendor.rb	2008-09-17 17:55:19.000000000 -0600
 @@ -1,14 +1 @@
  # Prefer gems to the bundled libs.
 -require 'rubygems'
@@ -16,4 +16,15 @@ diff -ur activesupport-2.0.1-o/lib/active_support/vendor.rb activesupport-2.0.1/
 -rescue Gem::LoadError
 -  $:.unshift "#{File.dirname(__FILE__)}/vendor/xml-simple-1.0.11"
 -end
-Only in activesupport-2.0.1/lib/active_support: vendor.rb~
+diff -Nur activesupport-2.0.1.orig/lib/active_support.rb activesupport-2.0.1.nogems/lib/active_support.rb
+--- activesupport-2.0.1.orig/lib/active_support.rb	2007-10-25 20:21:21.000000000 -0600
++++ activesupport-2.0.1.nogems/lib/active_support.rb	2008-09-17 17:55:33.000000000 -0600
+@@ -21,8 +21,6 @@
+ # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ #++
+ 
+-$:.unshift(File.dirname(__FILE__))
+-
+ require 'active_support/vendor'
+ require 'active_support/basic_object'
+ require 'active_support/inflector'
