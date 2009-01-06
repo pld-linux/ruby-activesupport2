@@ -1,10 +1,9 @@
 # TODO
-# - get rid of internal pkgs
+# - get rid of internal pkgs?
 #  vendor/builder-2.1.2
 #  vendor/xml-simple-1.0.11
-#  vendor/xml-simple-1.0.11/xmlsimple.rb
-Summary:	Mail generator library for Ruby
-Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
+#  vendor/xml-simple-1.0.11
+Summary:	Utility libraries for Ruby on Rails
 Name:		ruby-ActiveSupport
 Version:	2.0.5
 Release:	1
