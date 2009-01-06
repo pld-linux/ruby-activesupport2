@@ -48,15 +48,13 @@ Dokumentacja do biblioteki ActiveSupport.
 %setup -q -n activesupport-%{version}
 %patch0 -p1
 
+%{__rm} -r lib/active_support/vendor
+
 %build
 rdoc --ri --op ri lib
 rdoc --op rdoc lib
 rm -f ri/created.rid
 # external packages?
-rm -rf ri/Array
-rm -rf ri/BigDecimal
-rm -rf ri/BlankSlate
-rm -rf ri/Builder
 rm -rf ri/CGI
 rm -rf ri/Class
 rm -rf ri/ClassInheritableAttributes
@@ -67,7 +65,6 @@ rm -rf ri/Enumerable
 rm -rf ri/Exception
 rm -rf ri/FalseClass
 rm -rf ri/File
-rm -rf ri/Fixnum
 rm -rf ri/Float
 rm -rf ri/Hash
 rm -rf ri/HashWithIndifferentAccess
