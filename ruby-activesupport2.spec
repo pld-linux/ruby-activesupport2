@@ -22,6 +22,7 @@ Requires:	ruby-breakpoint
 Requires:	ruby-builder >= 2.1.2
 Requires:	ruby-xml-simple >= 1.0.11
 Obsoletes:	ruby-ActiveSupport
+Provides:	ruby-ActiveSupport
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
