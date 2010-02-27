@@ -3,13 +3,14 @@
 #  vendor/builder-2.1.2
 #  vendor/xml-simple-1.0.11
 #  vendor/xml-simple-1.0.11
+%define pkgname activesupport
 Summary:	Utility libraries for Ruby on Rails
-Name:		ruby-ActiveSupport
+Name:		ruby-%{pkgname}
 Version:	2.0.5
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
-Source0:	http://rubyforge.org/frs/download.php/45353/activesupport-%{version}.tgz
+Source0:	http://rubyforge.org/frs/download.php/45353/%{pkgname}-%{version}.tgz
 # Source0-md5:	662a9b2a43c43ed76bb422fe884f8699
 Patch0:		%{name}-nogems.patch
 URL:		http://rubyforge.org/projects/activesupport/
@@ -20,6 +21,7 @@ BuildRequires:	ruby-modules
 Requires:	ruby-breakpoint
 Requires:	ruby-builder >= 2.1.2
 Requires:	ruby-xml-simple >= 1.0.11
+Obsoletes:	ruby-ActiveSupport
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -98,7 +100,7 @@ install -d $RPM_BUILD_ROOT{%{ruby_rubylibdir},%{ruby_ridir}}
 install -d $RPM_BUILD_ROOT{%{ruby_rubylibdir},%{ruby_ridir},%{ruby_rdocdir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_rubylibdir}
 cp -a ri/* $RPM_BUILD_ROOT%{ruby_ridir}
-cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{name}-%{version}
+cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{pkgname}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -112,5 +114,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files rdoc
 %defattr(644,root,root,755)
-%{ruby_rdocdir}/%{name}-%{version}
+%{ruby_rdocdir}/%{pkgname}-%{version}
 %{ruby_ridir}/ActiveSupport
