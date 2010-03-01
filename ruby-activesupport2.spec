@@ -35,16 +35,28 @@ Utility libraries for Ruby on Rails.
 Biblioteki narzędziowe dla Ruby on Rails.
 
 %package rdoc
-Summary:	Documentation files for ActiveSupport
-Summary(pl.UTF-8):	Dokumentacja do biblioteki ActiveSupport
+Summary:	HTML documentation for %{pkgname}
+Summary(pl.UTF-8):	Dokumentacja w formacie HTML dla %{pkgname}
 Group:		Documentation
 Requires:	ruby >= 1:1.8.7-4
 
 %description rdoc
-Documentation files for ActiveSupport.
+HTML documentation for %{pkgname}.
 
 %description rdoc -l pl.UTF-8
-Dokumentacja do biblioteki ActiveSupport.
+Dokumentacja w formacie HTML dla %{pkgname}.
+
+%package ri
+Summary:	ri documentation for %{pkgname}
+Summary(pl.UTF-8):	Dokumentacja w formacie ri dla %{pkgname}
+Group:		Documentation
+Requires:	ruby
+
+%description ri
+ri documentation for %{pkgname}.
+
+%description ri -l pl.UTF-8
+Dokumentacji w formacie ri dla %{pkgname}.
 
 %prep
 %setup -q -c
@@ -52,15 +64,15 @@ Dokumentacja do biblioteki ActiveSupport.
 find -newer README  -o -print | xargs touch --reference %{SOURCE0}
 %patch0 -p1
 
-%{__rm} -rf lib/active_support/vendor*
+%{__rm} -r lib/active_support/vendor*
 
 # JRuby crap
-rm -f lib/active_support/xml_mini/jdom.rb
+rm lib/active_support/xml_mini/jdom.rb
 
 %build
 rdoc --ri --op ri lib
 rdoc --op rdoc lib
-rm -f ri/created.rid
+rm ri/created.rid
 rm -r ri/{CGI,Class,ClassInheritableAttributes,Date,DateTime} \
 	ri/{Enumerable,Exception,FalseClass,File,Float,Hash} \
 	ri/{HashWithIndifferentAccess,Integer,Kernel,Logger} \
@@ -70,8 +82,8 @@ rm -r ri/{CGI,Class,ClassInheritableAttributes,Date,DateTime} \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{ruby_rubylibdir},%{ruby_ridir}}
 install -d $RPM_BUILD_ROOT{%{ruby_rubylibdir},%{ruby_ridir},%{ruby_rdocdir}}
+
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_rubylibdir}
 cp -a ri/* $RPM_BUILD_ROOT%{ruby_ridir}
 cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{pkgname}-%{version}
@@ -89,4 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %files rdoc
 %defattr(644,root,root,755)
 %{ruby_rdocdir}/%{pkgname}-%{version}
+
+%files ri
+%defattr(644,root,root,755)
 %{ruby_ridir}/ActiveSupport
