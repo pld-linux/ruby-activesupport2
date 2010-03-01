@@ -1,26 +1,25 @@
-# TODO
-# - get rid of internal pkgs?
-#  vendor/builder-2.1.2
-#  vendor/xml-simple-1.0.11
-#  vendor/xml-simple-1.0.11
 %define pkgname activesupport
 Summary:	Utility libraries for Ruby on Rails
 Name:		ruby-%{pkgname}
-Version:	2.0.5
+Version:	2.3.5
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
-Source0:	http://rubyforge.org/frs/download.php/45353/%{pkgname}-%{version}.tgz
-# Source0-md5:	662a9b2a43c43ed76bb422fe884f8699
+Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
+# Source0-md5:	c4cbb7dd1ea612fd1c6b181a211cd468
 Patch0:		%{name}-nogems.patch
 URL:		http://rubyforge.org/projects/activesupport/
 BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby >= 1:1.8.6
 BuildRequires:	ruby-modules
 %{?ruby_mod_ver_requires_eq}
-Requires:	ruby-breakpoint
 Requires:	ruby-builder >= 2.1.2
-Requires:	ruby-xml-simple >= 1.0.11
+Requires:	ruby-i18n
+Requires:	ruby-json
+Requires:	ruby-mocha >= 0.9.7
+Requires:	ruby-memcache-client
+Requires:	ruby-nokogiri >= 1.1.1
+Requires:	ruby-tzinfo
 Obsoletes:	ruby-ActiveSupport
 Provides:	ruby-ActiveSupport
 #BuildArch:	noarch
@@ -48,52 +47,26 @@ Documentation files for ActiveSupport.
 Dokumentacja do biblioteki ActiveSupport.
 
 %prep
-%setup -q -n activesupport-%{version}
+%setup -q -c
+%{__tar} xf %{SOURCE0} -O data.tar.gz | %{__tar} xz
+find -newer README  -o -print | xargs touch --reference %{SOURCE0}
 %patch0 -p1
 
-%{__rm} -r lib/active_support/vendor
+%{__rm} -rf lib/active_support/vendor*
+
+# JRuby crap
+rm -f lib/active_support/xml_mini/jdom.rb
 
 %build
 rdoc --ri --op ri lib
 rdoc --op rdoc lib
 rm -f ri/created.rid
-# external packages?
-rm -rf ri/CGI
-rm -rf ri/Class
-rm -rf ri/ClassInheritableAttributes
-rm -rf ri/Date
-rm -rf ri/DateTime
-rm -rf ri/Dependencies
-rm -rf ri/Enumerable
-rm -rf ri/Exception
-rm -rf ri/FalseClass
-rm -rf ri/File
-rm -rf ri/Float
-rm -rf ri/Hash
-rm -rf ri/HashWithIndifferentAccess
-rm -rf ri/Inflector
-rm -rf ri/Integer
-rm -rf ri/Kernel
-rm -rf ri/Logger
-rm -rf ri/MissingSourceFile
-rm -rf ri/Module
-rm -rf ri/NameError
-rm -rf ri/NilClass
-rm -rf ri/Numeric
-rm -rf ri/Object
-rm -rf ri/OrderedOptions
-rm -rf ri/Pathname
-rm -rf ri/Proc
-rm -rf ri/Range
-rm -rf ri/Regexp
-rm -rf ri/REXML
-rm -rf ri/String
-rm -rf ri/Symbol
-rm -rf ri/Test
-rm -rf ri/Time
-rm -rf ri/TimeZone
-rm -rf ri/TrueClass
-rm -rf ri/XmlSimple
+rm -r ri/{CGI,Class,ClassInheritableAttributes,Date,DateTime} \
+	ri/{Enumerable,Exception,FalseClass,File,Float,Hash} \
+	ri/{HashWithIndifferentAccess,Integer,Kernel,Logger} \
+	ri/{LibXML,MissingSourceFile,Module,NameError,NilClass,Numeric} \
+	ri/{Object,Pathname,Proc,Range,Regexp,REXML,String} \
+	ri/{Symbol,Test,Time,TrueClass,Process,Array,BigDecimal}
 
 %install
 rm -rf $RPM_BUILD_ROOT
