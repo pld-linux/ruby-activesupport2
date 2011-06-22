@@ -23,6 +23,7 @@ Requires:	ruby-nokogiri >= 1.1.1
 Requires:	ruby-tzinfo
 Obsoletes:	ruby-ActiveSupport
 Provides:	ruby-ActiveSupport
+Provides:	ruby-activesupport = %{version}
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
