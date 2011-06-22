@@ -1,12 +1,14 @@
 %define pkgname activesupport
 Summary:	Utility libraries for Ruby on Rails
 Name:		ruby-%{pkgname}
-Version:	3.0.3
+Version:	2.3.5
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	474ab3e5963afdad6a9c6c66ff08b16d
+# Source0-md5:	c4cbb7dd1ea612fd1c6b181a211cd468
+Patch0:		%{name}-nogems.patch
+Patch1:		%{name}-thread.patch
 URL:		http://rubyforge.org/projects/activesupport/
 BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby >= 1:1.8.6
@@ -60,6 +62,11 @@ Dokumentacji w formacie ri dla %{pkgname}.
 %prep
 %setup -q -c
 %{__tar} xf %{SOURCE0} -O data.tar.gz | %{__tar} xz
+find -newer README  -o -print | xargs touch --reference %{SOURCE0}
+%patch0 -p1
+%patch1 -p1
+
+%{__rm} -r lib/active_support/vendor*
 
 # JRuby crap
 rm lib/active_support/xml_mini/jdom.rb
@@ -69,10 +76,10 @@ rdoc --ri --op ri lib
 rdoc --op rdoc lib
 rm ri/created.rid
 rm -r ri/{CGI,Class,ClassInheritableAttributes,Date,DateTime} \
-	ri/{Enumerable,FalseClass,File,Float,Hash} \
-	ri/{Integer,Kernel,Logger} \
-	ri/{LibXML,Module,NameError,NilClass,Numeric} \
-	ri/{Object,Proc,Range,Regexp,REXML,String} \
+	ri/{Enumerable,Exception,FalseClass,File,Float,Hash} \
+	ri/{HashWithIndifferentAccess,Integer,Kernel,Logger} \
+	ri/{LibXML,MissingSourceFile,Module,NameError,NilClass,Numeric} \
+	ri/{Object,Pathname,Proc,Range,Regexp,REXML,String} \
 	ri/{Symbol,Test,Time,TrueClass,Process,Array,BigDecimal}
 
 %install
@@ -91,6 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGELOG
 %{ruby_rubylibdir}/active_support
 %{ruby_rubylibdir}/active_support.rb
+%{ruby_rubylibdir}/activesupport.rb
 
 %files rdoc
 %defattr(644,root,root,755)
