@@ -1,9 +1,0 @@
-diff -ur ruby-activesupport-2.3.5-o//lib/active_support/dependencies.rb ruby-activesupport-2.3.5/lib/active_support/dependencies.rb
---- ruby-activesupport-2.3.5-o//lib/active_support/dependencies.rb	2010-03-19 09:04:11.000000000 +0100
-+++ ruby-activesupport-2.3.5/lib/active_support/dependencies.rb	2010-11-23 18:01:20.000000000 +0100
-@@ -1,3 +1,4 @@
-+require 'thread'
- module ActiveSupport #:nodoc:
-   module Dependencies #:nodoc:
-     extend self
-Only in ruby-activesupport-2.3.5/lib/active_support: dependencies.rb~
