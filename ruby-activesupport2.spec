@@ -1,12 +1,12 @@
 %define pkgname activesupport
 Summary:	Utility libraries for Ruby on Rails
 Name:		ruby-activesupport2
-Version:	2.3.11
-Release:	2
+Version:	2.3.14
+Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	713edf8f82c8b0dfa61fedb489626c75
+# Source0-md5:	2287a8a769cc4ecca94d3c5b867a874c
 Patch0:		ruby-activesupport-nogems.patch
 Patch1:		ruby-activesupport-ruby-1.9.3.patch
 URL:		http://rubyforge.org/projects/activesupport/
@@ -81,7 +81,8 @@ rm -r ri/{CGI,Class,ClassInheritableAttributes,Date,DateTime} \
 	ri/{HashWithIndifferentAccess,Integer,Kernel,Logger} \
 	ri/{LibXML,MissingSourceFile,Module,NameError,NilClass,Numeric} \
 	ri/{Object,Pathname,Proc,Range,Regexp,REXML,String} \
-	ri/{Symbol,Test,Time,TrueClass,Process,Array,BigDecimal}
+	ri/{Symbol,Test,Time,TrueClass,Process,Array,BigDecimal} \
+	ri/{Benchmark,ERB,Fixnum,InstanceExecMethods}
 
 %install
 rm -rf $RPM_BUILD_ROOT
