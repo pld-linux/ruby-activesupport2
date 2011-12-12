@@ -76,7 +76,7 @@ rm lib/active_support/xml_mini/jdom.rb
 rdoc --ri --op ri lib
 rdoc --op rdoc lib
 rm ri/created.rid
-rm -r ri/{CGI,Class,ClassInheritableAttributes,Date,DateTime} \
+rm -fr ri/{CGI,Class,ClassInheritableAttributes,Date,DateTime} \
 	ri/{Enumerable,Exception,FalseClass,File,Float,Hash} \
 	ri/{HashWithIndifferentAccess,Integer,Kernel,Logger} \
 	ri/{LibXML,MissingSourceFile,Module,NameError,NilClass,Numeric} \
