@@ -1,14 +1,13 @@
 %define pkgname activesupport
 Summary:	Utility libraries for Ruby on Rails
 Name:		ruby-activesupport2
-Version:	2.3.15
+Version:	2.3.16
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	e85d00c8d7e535e71551b744006a13bc
+# Source0-md5:	e8110faabd5f937191585fb1b2986b17
 Patch0:		ruby-activesupport-nogems.patch
-Patch1:		ruby-activesupport-ruby-1.9.3.patch
 URL:		http://rubyforge.org/projects/activesupport/
 BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby >= 1:1.8.6
@@ -65,7 +64,6 @@ Dokumentacji w formacie ri dla %{pkgname}.
 %{__tar} xf %{SOURCE0} -O data.tar.gz | %{__tar} xz
 find -newer README  -o -print | xargs touch --reference %{SOURCE0}
 %patch0 -p1
-%patch1 -p1
 
 %{__rm} -r lib/active_support/vendor*
 
