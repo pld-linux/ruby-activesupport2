@@ -2,7 +2,7 @@
 Summary:	Utility libraries for Ruby on Rails
 Name:		ruby-activesupport2
 Version:	2.3.16
-Release:	2
+Release:	3
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
@@ -15,6 +15,7 @@ BuildRequires:	ruby-modules
 %{?ruby_mod_ver_requires_eq}
 Requires:	ruby-builder >= 2.1.2
 Requires:	ruby-i18n
+Requires:	ruby-iconv
 Requires:	ruby-json
 Requires:	ruby-mocha >= 0.9.7
 Requires:	ruby-memcache-client
